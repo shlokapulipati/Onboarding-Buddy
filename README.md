@@ -1,10 +1,6 @@
-# 🤖 KagglerCorp Onboarding Agent Buddy
+# 🤖 Onboarding Agent Buddy
 
 > An intelligent, autonomous onboarding assistant designed to streamline the experience for new hires using the power of Google Gemini 2.5 Flash.
-
-![Onboarding Buddy UI](https://img.shields.io/badge/UI-React_Vite-61DAFB?style=for-the-badge&logo=react)
-![Backend](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge&logo=fastapi)
-![AI](https://img.shields.io/badge/AI-Gemini_2.5_Flash-4285F4?style=for-the-badge&logo=google)
 
 ## 🌟 Overview
 
@@ -14,7 +10,7 @@ The **Onboarding Agent Buddy** acts as a virtual HR representative and technical
 
 - **Dual Interface Design:** 
   - 💬 **Conversational Chat UI:** A modern, elegant dark-themed chat interface for casual inquiries and guidance.
-  - 💻 **Developer CLI Terminal:** A raw, monospace terminal (`KAGGLER-OS`) mimicking internal sysadmin tools with real commands.
+  - 💻 **Developer CLI Terminal:** A raw, monospace terminal mimicking internal sysadmin tools with real commands.
 - **RAG-Powered Knowledge Base:** Dynamically parses local mock company data (employee handbooks, technical setup guides, and office rules) so the agent can answer highly specific company questions.
 - **Tool Triggers & Reasoning Loop:** Uses Gemini Function Calling to transparently trigger RAG document searches or escalate complex/sensitive questions directly to human HR.
 - **Mock MCP Connectors:** Includes mocked architecture for the Model Context Protocol (MCP) to simulate enterprise integrations (e.g., HR APIs, remote directory lookups).
@@ -79,7 +75,6 @@ Once logged in to the Developer CLI in the app, you can test these built-in agen
 - `clear` - Clear terminal logs.
 
 ---
-
 ## 📂 Project Structure
 
 ```
