@@ -1,0 +1,78 @@
+office_rules.txt
+
+=================================================
+ACME INNOVATIONS — OFFICE CONDUCT & COMPLIANCE FAQ
+=================================================
+(20 Questions)
+
+-------------------------------------------------
+SECTION 1: DRESS CODE & CORPORATE ATTIRE
+-------------------------------------------------
+
+Q1. What is the dress code Monday through Thursday?
+A: From Monday through Thursday, all employees are required to adhere to a strict business casual dress code, which includes collared shirts, blouses, tailored trousers, skirts of appropriate length, and closed-toe formal or semi-formal footwear. This applies regardless of whether you have external meetings that day. The standard exists to maintain a consistently professional office environment. Casual weekend-style clothing is not acceptable on these four days under any circumstance.
+
+Q2. What's allowed on Casual Fridays?
+A: Casual Fridays offer a relaxed alternative, permitting relaxed-fit, wide-leg, or straight-leg denim jeans to be paired with casual t-shirts, hoodies, or cami tops. The overall look must remain neat and professional rather than resembling weekend loungewear. This is meant to give employees a comfortable break at the end of the week while still respecting the office setting. Casual Friday is optional — traditional business casual is always acceptable too.
+
+Q3. Are ripped or distressed jeans allowed on Fridays?
+A: No — ripped, distressed, or overly faded denim is not permitted even on Casual Fridays. Only relaxed-fit, wide-leg, or straight-leg jeans in good condition are acceptable. This rule exists to maintain a baseline of professionalism even during relaxed dress days. Employees unsure whether an item qualifies should default to a more conservative choice.
+
+Q4. Can I wear hoodies with graphics or slogans on Fridays?
+A: Hoodies must be free of large graphic prints or offensive language, even on Casual Fridays. Plain or subtly branded hoodies (such as company-branded merchandise) are generally acceptable. Anything with large text, controversial imagery, or slogans is not appropriate for the office. When in doubt, choose a plain, solid-color option.
+
+Q5. Do dress code rules change if I have a client meeting?
+A: Yes — employees meeting external clients or attending investor presentations are expected to revert to full business casual attire regardless of the day of the week, including Fridays. This applies even if the meeting is virtual, since video calls still reflect on company image. Managers will typically flag client-facing days in advance so employees can plan their attire accordingly. This rule takes precedence over the standard Casual Friday allowance.
+
+Q6. What footwear is and isn't allowed?
+A: Closed-toe formal or semi-formal footwear is required Monday through Thursday. On Fridays, footwear may be relaxed to include clean sneakers, but flip-flops and open slides remain prohibited at all times for workplace safety reasons. This safety consideration applies across all days, not just Friday. Sneakers should be clean and in good condition rather than worn-out athletic shoes.
+
+-------------------------------------------------
+SECTION 2: STATION SECURITY & DATA PRIVACY COMPLIANCE
+-------------------------------------------------
+
+Q7. When am I required to lock my workstation?
+A: Every employee must lock their workstation screen immediately upon stepping away from their desk, even for brief intervals such as a coffee break or a quick conversation with a colleague. Use the shortcut Windows+L or Command+Control+Q to do this quickly. This applies regardless of how "trusted" the surrounding environment feels, including within the office itself. An unlocked, unattended workstation is treated as a security policy violation if discovered.
+
+Q8. Can I share my password with a teammate if it's urgent?
+A: No — sharing of passwords, API tokens, SSH keys, or any authentication credentials with another employee is strictly and absolutely prohibited under all circumstances, regardless of seniority or perceived urgency. If a teammate needs access to something, the correct process is to request proper access provisioning through IT rather than sharing credentials. This rule exists specifically to maintain accountability and traceability of every action taken in company systems. Violating this is treated as a serious compliance issue, not a minor infraction.
+
+Q9. What data privacy regulations must I comply with?
+A: All employees must comply fully with applicable data privacy regulations when handling customer or internal data, including never exporting sensitive datasets to personal devices or unauthorized cloud storage. This includes not emailing sensitive files to personal email accounts, even for convenience. Any data handling outside approved company systems must be pre-approved by the compliance team. These rules apply to both customer data and internal company data equally.
+
+Q10. What should I do if I suspect a phishing email or security incident?
+A: Any suspected security incident, such as a phishing email, an unlocked terminal, or a lost access badge, must be reported immediately to the IT Security desk rather than being handled informally. Do not click any links or attachments in a suspicious email before reporting it. Early reporting significantly reduces potential damage from a genuine security threat. There is no penalty for reporting something that turns out to be a false alarm — under-reporting is the bigger risk.
+
+Q11. How should I dispose of printed documents containing sensitive information?
+A: Physical printouts containing sensitive information must be shredded using the designated bins rather than placed in regular trash or recycling. These shredding bins are located near each printer station on every floor. Regular trash disposal of sensitive documents is considered a compliance violation even if unintentional. When in doubt about whether a document is "sensitive," default to shredding it.
+
+Q12. What happens if I lose my company access badge?
+A: A lost access badge must be reported immediately to the IT Security desk, similar to any other suspected security incident. Your badge will be deactivated remotely within minutes of the report to prevent unauthorized building access. A replacement badge is typically issued within one business day. Delaying the report increases the window of risk, so immediate reporting is required regardless of the time of day.
+
+-------------------------------------------------
+SECTION 3: HARDWARE ALLOCATION & ASSET MANAGEMENT
+-------------------------------------------------
+
+Q13. Who owns the laptop and equipment issued to me?
+A: All company-issued hardware, including laptops, monitors, testing devices, and peripheral equipment, remains the property of Acme Innovations at all times. Employees are custodians of this equipment, not owners, even though they use it daily. This distinction matters for insurance, replacement, and return purposes. The asset acknowledgment form signed during onboarding formally documents this arrangement.
+
+Q14. What if I accidentally damage my company laptop?
+A: Any physical damage, malfunction, or loss of company hardware must be reported to the IT Asset Desk within 24 hours of the incident. You'll need to provide a brief written description of how the damage occurred to allow for timely repair or replacement processing. Prompt reporting is treated far more favorably than delayed or hidden damage. IT will provide a loaner device if your primary hardware needs repair time.
+
+Q15. Am I allowed to install any software I want on my company laptop?
+A: No — employees are not permitted to install unauthorized software, alter BIOS-level system settings, or attempt personal hardware repairs on company-issued devices without prior IT approval. Software required for work but not pre-installed should be requested through the IT service desk. This restriction exists to maintain security compliance and device stability across the company fleet. Unauthorized modifications can void warranty coverage and complicate future troubleshooting.
+
+Q16. What happens to my hardware if I resign or go on extended leave?
+A: Upon resignation, termination, or extended leave exceeding 60 days, all allocated hardware must be returned to the IT desk in working condition along with original chargers and accessories. This return must happen within five business days of the triggering event. IT will provide a checklist to ensure nothing is missed during the handover. This applies even for employees planning to return after their leave period.
+
+Q17. What happens if I don't return hardware or fail to report damage on time?
+A: Failure to return hardware or report damage in a timely manner may result in the cost of replacement being deducted from final settlement dues. This is explicitly outlined in the asset acknowledgment form signed during onboarding, so there should be no surprises. The deducted amount is based on current market replacement value, not the original purchase price. This policy exists to encourage responsible custodianship throughout your employment.
+
+Q18. Can I take my company laptop home for WFH days?
+A: Yes, company laptops are intended to travel with you between office and home for approved WFH days. However, the same care and security standards apply regardless of location — screen locking, no unauthorized software, and no unauthorized data exports. Damage that occurs at home is reported through the same 24-hour process as damage occurring in the office. Losing a company laptop while traveling should be reported immediately, similar to a lost access badge.
+
+Q19. Who do I contact for a hardware upgrade request, like more RAM or a second monitor?
+A: Hardware upgrade requests should be submitted through the IT Asset Desk portal, specifying the business justification for the request. Requests tied to a specific project need or role requirement are typically prioritized. Approval timelines vary depending on budget cycles and current equipment availability. Standard peripherals like a second monitor are often approved faster than full device upgrades.
+
+Q20. What should I do with old cables, chargers, or accessories I no longer need?
+A: Unused company-issued accessories should be returned to the IT Asset Desk rather than discarded or kept indefinitely, even if they seem minor. This helps IT maintain accurate inventory records and redistribute usable accessories to other employees. Personal disposal of company property, even small items, is discouraged since it's technically still company-owned equipment. When returning larger equipment, it's a good habit to return associated accessories at the same time.
