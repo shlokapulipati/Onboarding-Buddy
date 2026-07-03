@@ -1,6 +1,12 @@
 # 🤖 Onboarding Agent Buddy
 
-> An intelligent, autonomous onboarding assistant designed to streamline the experience for new hires using the power of Google Gemini 2.5 Flash.
+ An intelligent, autonomous onboarding assistant designed to streamline the experience for new hires using the power of Google Gemini 2.5 Flash.
+
+## 🎯 Problem Statement
+When new employees join a company, they are often overwhelmed by scattered documentation, complex IT setup procedures, and disjointed HR portals. Finding simple answers (like "How do I set up my VPN?" or "Which boilerplate should I use?") usually requires interrupting busy colleagues or navigating clunky intranet search engines.
+
+## 💡 Solution
+The **Onboarding Agent Buddy** acts as a virtual HR representative and technical guide for new hires. It connects directly to secure internal company documentation and uses AI reasoning to answer policy questions, guide setup processes, and provide a fun, interactive "hacker" CLI terminal for developers. By using an intelligent agent, we turn static, hard-to-find documents into a conversational, instantly accessible assistant.
 
 ## 🌟 Overview
 
@@ -14,6 +20,26 @@ The **Onboarding Agent Buddy** acts as a virtual HR representative and technical
 - **RAG-Powered Knowledge Base:** Dynamically parses local mock company data (employee handbooks, technical setup guides, and office rules) so the agent can answer highly specific company questions.
 - **Tool Triggers & Reasoning Loop:** Uses Gemini Function Calling to transparently trigger RAG document searches or escalate complex/sensitive questions directly to human HR.
 - **Mock MCP Connectors:** Includes mocked architecture for the Model Context Protocol (MCP) to simulate enterprise integrations (e.g., HR APIs, remote directory lookups).
+
+---
+
+## 🏗️ Architecture
+
+The application is built using a modern, decoupled architecture:
+1. **Frontend Interface:** A React application providing both a conversational UI for general employees and a CLI Terminal for engineers.
+2. **Agent Backend:** A FastAPI Python server hosting the Gemini 2.5 Flash agent.
+3. **Agent Skills (Tools):** 
+   - **Internal RAG Search:** Python tools (`company_search.py`) that parse local JSON/Markdown mock datasets (engineering assets, design resources, HR compliance).
+   - **Mock MCP Server Integration:** A mocked endpoint (`/api/external-sources`) simulating a Model Context Protocol (MCP) server for secure, remote enterprise directory lookups.
+4. **Security:** API keys are strictly managed via local `.env` files (ignored by Git) and not hardcoded into the application.
+
+```mermaid
+graph TD;
+    A[React Frontend] -->|Chat/CLI Requests| B(FastAPI Backend)
+    B -->|Generative Config| C{Gemini 2.5 Flash Agent}
+    C -->|Tool Call: fetch_proprietary_assets| D[(Mock Internal Data)]
+    C -->|Tool Call: search_external_mcp| E[Mock MCP Server]
+```
 
 ---
 

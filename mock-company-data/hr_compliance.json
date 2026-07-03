@@ -1,0 +1,206 @@
+{
+  "resource_type": "hr_compliance",
+  "company": "Acme Innovations",
+  "items": [
+    {
+      "id": "HR-001",
+      "title": "Payroll & Direct Deposit Portal (Workday)",
+      "category": "Payroll Portal",
+      "url": "https://acmeinnovations.myworkday.com/payroll",
+      "description": "The official Workday portal where employees manage direct deposit bank account details, view pay stubs, and download annual tax documents. New employees must complete direct deposit setup within their first week to avoid receiving a physical check for their first pay cycle. The portal also allows employees to update tax withholding elections and view a full history of past reimbursements processed alongside regular payroll. Any discrepancy in a pay stub should be reported to the Payroll team through the portal's built-in ticketing widget rather than by email.",
+      "tags": ["payroll", "workday", "direct-deposit"],
+      "owner": "People Operations Team",
+      "last_updated": "2026-06-01"
+    },
+    {
+      "id": "HR-002",
+      "title": "Benefits Enrollment Portal (Gusto)",
+      "category": "Payroll Portal",
+      "url": "https://app.gusto.com/acme-innovations/benefits",
+      "description": "The Gusto portal used for enrolling in health, dental, and vision insurance plans, with a mandatory enrollment window during an employee's first 30 days of employment. Outside of this initial window, plan changes are only permitted during the annual open enrollment period or after a qualifying life event such as marriage or the birth of a child. The portal provides side-by-side plan comparison tools to help employees choose between the available HMO and PPO options. Dependents can also be added directly through this portal with the required supporting documentation.",
+      "tags": ["benefits", "gusto", "insurance"],
+      "owner": "People Operations Team",
+      "last_updated": "2026-05-15"
+    },
+    {
+      "id": "HR-003",
+      "title": "Expense Reimbursement Submission Portal",
+      "category": "Payroll Portal",
+      "url": "https://acmeinnovations.myworkday.com/expenses",
+      "description": "The portal used to submit reimbursable business expenses, such as client meals, travel, or approved software purchases, requiring an itemized receipt to be attached to every claim over $25. Claims are routed automatically to the employee's manager for approval before being processed in the next payroll cycle. The system flags any expense category exceeding pre-set thresholds for additional finance team review. Employees are encouraged to submit expenses within 14 days of purchase to avoid delays caused by fading memory of the business justification.",
+      "tags": ["payroll", "expenses", "reimbursement"],
+      "owner": "Finance Team",
+      "last_updated": "2026-04-20"
+    },
+    {
+      "id": "HR-004",
+      "title": "Engineering Toolchain License Vault Reference — JetBrains IDEs",
+      "category": "Software License",
+      "url": "https://internal.acmeinnovations.dev/it/license-vault/jetbrains-ide-ref",
+      "description": "A reference entry pointing engineers to the company's centralized secrets vault where JetBrains IDE license activation is managed via a company-wide license server rather than individual keys. Engineers do not need to manually request an individual key; instead, the IDE activates automatically once connected to the internal network using the license server address documented in this reference. Access to the vault entry itself is restricted to the IT Asset team, and this page only documents the activation process, not the credential itself. Any activation issues should be routed to the IT service desk rather than attempting manual key entry.",
+      "tags": ["license", "jetbrains", "ide", "vault"],
+      "owner": "IT Asset Management Team",
+      "last_updated": "2026-03-25"
+    },
+    {
+      "id": "HR-005",
+      "title": "Design Software License Vault Reference — Figma & Adobe CC",
+      "category": "Software License",
+      "url": "https://internal.acmeinnovations.dev/it/license-vault/design-suite-ref",
+      "description": "Documents how design team members are provisioned with Figma Organization seats and Adobe Creative Cloud licenses through single sign-on rather than individual license keys, removing the need for manual activation. New design hires are automatically granted access within 24 hours of their start date being confirmed in Workday. This reference page explains the provisioning process and who to contact if access has not appeared by day two. Seats are automatically reclaimed and reassigned when an employee's offboarding is processed in Workday.",
+      "tags": ["license", "figma", "adobe", "vault"],
+      "owner": "IT Asset Management Team",
+      "last_updated": "2026-02-28"
+    },
+    {
+      "id": "HR-006",
+      "title": "Staging Environment Variable Template (.env.example)",
+      "category": "Environment Template",
+      "url": "https://internal.acmeinnovations.dev/config/staging.env.example",
+      "description": "A template file listing every environment variable required to run a service against the staging environment, with all real values replaced by clearly marked placeholders such as `DATABASE_URL=postgres://user:REPLACE_ME@staging-host:5432/db`. Actual staging credentials are never stored in this file or committed to any repository, and must instead be pulled from the internal secrets vault at deploy time. Engineers should copy this file to a local `.env` and populate it using the vault CLI tool rather than requesting values manually from teammates. Any new environment variable introduced to a service must be added to this template in the same PR that introduces it.",
+      "tags": ["env", "staging", "configuration", "template"],
+      "owner": "Platform Engineering Team",
+      "last_updated": "2026-06-05"
+    },
+    {
+      "id": "HR-007",
+      "title": "Local Development Environment Variable Template",
+      "category": "Environment Template",
+      "url": "https://internal.acmeinnovations.dev/config/local.env.example",
+      "description": "A local-development-focused environment template distinct from the staging template, using safe default values that work out of the box with the Docker Compose setup referenced in the engineering assets. Includes placeholder values for the local PostgreSQL connection string, a mock API key for the third-party email service, and a development-only JWT signing secret that must never be reused in staging or production. This file is intentionally safe to commit and share since none of its values grant access to real systems. Engineers are reminded in the file header never to paste real credentials into this template.",
+      "tags": ["env", "local-dev", "configuration"],
+      "owner": "Platform Engineering Team",
+      "last_updated": "2026-05-28"
+    },
+    {
+      "id": "HR-008",
+      "title": "Mandatory Compliance Training — Data Privacy & Security Basics",
+      "category": "Compliance Training",
+      "url": "https://internal.acmeinnovations.dev/training/data-privacy-basics",
+      "description": "A mandatory online training module covering data privacy fundamentals, including how to handle customer data, recognize phishing attempts, and understand the company's obligations under applicable data protection regulations. New employees must complete this module within their first 14 days, and it must be renewed annually for all staff regardless of tenure. The module concludes with a short quiz, and a passing score of 80% or higher is required to receive completion credit. Completion status is automatically synced to the employee's HR Portal profile and tracked by the Compliance team.",
+      "tags": ["training", "compliance", "data-privacy"],
+      "owner": "Compliance Team",
+      "last_updated": "2026-01-20"
+    },
+    {
+      "id": "HR-009",
+      "title": "Mandatory Compliance Training — Workplace Conduct & Anti-Harassment",
+      "category": "Compliance Training",
+      "url": "https://internal.acmeinnovations.dev/training/workplace-conduct",
+      "description": "A required training module covering respectful workplace conduct, anti-harassment policy, and the proper channels for reporting concerns confidentially to HR or through the anonymous ethics hotline. This training must be completed within the first 30 days of employment and is refreshed annually company-wide as part of standard compliance practice. It includes scenario-based questions designed to help employees recognize subtle forms of workplace misconduct, not just overt violations. Managers complete an extended version of this module that includes additional guidance on handling reports appropriately.",
+      "tags": ["training", "compliance", "workplace-conduct"],
+      "owner": "Compliance Team",
+      "last_updated": "2026-02-10"
+    },
+    {
+      "id": "HR-010",
+      "title": "Mandatory Compliance Training — Information Security Awareness",
+      "category": "Compliance Training",
+      "url": "https://internal.acmeinnovations.dev/training/infosec-awareness",
+      "description": "Covers core information security practices including password hygiene, recognizing social engineering attempts, and the company's strict no-credential-sharing policy also documented in the office rules. Includes a simulated phishing exercise that is periodically re-run throughout the year without advance notice to measure organization-wide awareness. Employees who fail a simulated phishing test are automatically enrolled in a short supplementary training module. This training is a hard prerequisite for receiving access to any system containing customer data.",
+      "tags": ["training", "compliance", "security"],
+      "owner": "Security Engineering Team",
+      "last_updated": "2026-03-15"
+    },
+    {
+      "id": "HR-011",
+      "title": "IT Access Request Portal (System & Tool Provisioning)",
+      "category": "IT Access",
+      "url": "https://internal.acmeinnovations.dev/it/access-request",
+      "description": "The centralized portal for requesting access to internal tools and systems, such as GitHub repository permissions, database read access, or third-party SaaS licenses not automatically provisioned at onboarding. Every request requires a manager approval step before being routed to IT for fulfillment, typically completed within one to two business days. The portal maintains a full audit log of every access grant and revocation for compliance purposes. Access that is no longer needed should be proactively released through this same portal rather than left dormant.",
+      "tags": ["it-access", "provisioning", "portal"],
+      "owner": "IT Operations Team",
+      "last_updated": "2026-05-08"
+    },
+    {
+      "id": "HR-012",
+      "title": "VPN & Remote Access Setup Guide",
+      "category": "IT Access",
+      "url": "https://internal.acmeinnovations.dev/it/vpn-setup-guide.md",
+      "description": "Explains how to install and configure the company VPN client required to access certain internal tools, such as the staging database, from outside the office network. Covers the two-factor authentication requirement enforced on every VPN connection attempt, using the company's approved authenticator app. Also documents split-tunneling behavior, clarifying that only traffic to internal Acme domains is routed through the VPN, not general internet browsing. Connection issues should be reported to IT along with the client-generated diagnostic log for faster troubleshooting.",
+      "tags": ["vpn", "remote-access", "it"],
+      "owner": "IT Operations Team",
+      "last_updated": "2026-04-14"
+    },
+    {
+      "id": "HR-013",
+      "title": "Office Dress Code Policy — Business Casual & Casual Fridays",
+      "category": "Office Policy",
+      "url": "https://internal.acmeinnovations.dev/hr/policies/dress-code.md",
+      "description": "Formalizes the dress code requiring strict business casual attire Monday through Thursday, including collared shirts, tailored trousers, and closed-toe footwear. Casual Fridays permit relaxed-fit, wide-leg, or straight-leg denim paired with casual t-shirts, hoodies, or cami tops, provided the look remains neat rather than resembling weekend loungewear. Ripped or distressed denim remains prohibited even on Fridays, and employees attending client or investor meetings must revert to full business casual regardless of the day. This policy applies equally to in-office and video-call appearances for client-facing meetings.",
+      "tags": ["office-policy", "dress-code"],
+      "owner": "People Operations Team",
+      "last_updated": "2026-01-30"
+    },
+    {
+      "id": "HR-014",
+      "title": "Remote Work & WFH Allocation Policy",
+      "category": "Office Policy",
+      "url": "https://internal.acmeinnovations.dev/hr/policies/wfh-policy.md",
+      "description": "Formal policy document outlining that remote work is available only after completing the 30-day onboarding milestone, and is capped strictly at two days per week thereafter. All WFH days must be requested and approved in advance through the HR Portal's Remote Allocation module, with employees expected to remain fully reachable during core hours. The policy also outlines the manager's discretion to decline WFH requests that conflict with critical deadlines or client meetings. Habitual policy disregard may result in a temporary suspension of remote privileges as detailed in the employee handbook.",
+      "tags": ["office-policy", "remote-work", "wfh"],
+      "owner": "People Operations Team",
+      "last_updated": "2026-02-22"
+    },
+    {
+      "id": "HR-015",
+      "title": "Station Security & Data Handling Policy",
+      "category": "Office Policy",
+      "url": "https://internal.acmeinnovations.dev/hr/policies/station-security.md",
+      "description": "Codifies the requirement to lock workstations immediately when stepping away, the absolute prohibition on sharing passwords or API tokens, and the mandatory shredding of sensitive printed documents. Also outlines the immediate reporting requirement for any suspected security incident, including phishing emails or lost access badges, directly to the IT Security desk. This policy is reviewed and re-acknowledged annually by all employees as part of the infosec awareness training cycle in HR-010. Violations are treated as serious compliance matters regardless of employee seniority.",
+      "tags": ["office-policy", "security", "data-privacy"],
+      "owner": "Security Engineering Team",
+      "last_updated": "2026-01-30"
+    },
+    {
+      "id": "HR-016",
+      "title": "Hardware & Asset Management Policy",
+      "category": "Office Policy",
+      "url": "https://internal.acmeinnovations.dev/hr/policies/asset-management.md",
+      "description": "Details that all company-issued hardware remains Acme property, requiring damage to be reported to the IT Asset Desk within 24 hours and full hardware return within five business days of resignation, termination, or extended leave. Prohibits unauthorized software installation or BIOS-level changes without prior IT approval. Failure to return equipment or report damage promptly may result in replacement costs being deducted from final settlement, as acknowledged in the onboarding asset form. This policy applies equally to hardware used in-office and hardware taken home for approved WFH days.",
+      "tags": ["office-policy", "hardware", "assets"],
+      "owner": "IT Asset Management Team",
+      "last_updated": "2026-02-05"
+    },
+    {
+      "id": "HR-017",
+      "title": "Leave & Medical Reimbursement Policy",
+      "category": "Office Policy",
+      "url": "https://internal.acmeinnovations.dev/hr/policies/leave-medical-policy.md",
+      "description": "Formalizes the annual allocation of 12 casual leave days and 15 earned leave days, along with the required notice periods of 24 hours for casual leave and five working days for earned leave. Details the medical reimbursement claim process, requiring submission within 30 days of the expense along with itemized bills and prescriptions, followed by a 7 to 10 business day two-stage verification process. Claims with incomplete or illegible documentation are returned for resubmission rather than rejected outright. This policy is administered jointly by the People Operations and Finance teams.",
+      "tags": ["office-policy", "leave", "medical-reimbursement"],
+      "owner": "People Operations Team",
+      "last_updated": "2026-03-01"
+    },
+    {
+      "id": "HR-018",
+      "title": "New Hire IT Provisioning Checklist",
+      "category": "IT Access",
+      "url": "https://internal.acmeinnovations.dev/it/new-hire-provisioning-checklist.md",
+      "description": "A checklist used internally by the IT team to ensure every new hire receives their laptop, monitor, access badge, and core software provisioning before their first day. Includes a pre-configured checklist item for setting up email, Slack, Jira, and Workday accounts in advance of the start date. Also flags which access levels require additional manager sign-off versus which are granted automatically based on department. This checklist is the operational counterpart to the employee-facing onboarding flow documented in the design resources.",
+      "tags": ["it-access", "onboarding", "provisioning"],
+      "owner": "IT Operations Team",
+      "last_updated": "2026-04-09"
+    },
+    {
+      "id": "HR-019",
+      "title": "Code of Conduct & Ethics Policy",
+      "category": "Compliance Training",
+      "url": "https://internal.acmeinnovations.dev/hr/policies/code-of-conduct.md",
+      "description": "Outlines the company's expectations around ethical behavior, conflicts of interest, and acceptable use of company resources, directly reinforcing the core values described in the employee handbook. Requires all employees to disclose any outside business activities that could present a conflict of interest within 30 days of the activity beginning. Includes clear examples distinguishing acceptable professional courtesy gifts from prohibited ones exceeding a nominal value threshold. Employees must formally re-acknowledge this policy annually through the HR Portal.",
+      "tags": ["compliance", "ethics", "code-of-conduct"],
+      "owner": "Compliance Team",
+      "last_updated": "2026-01-12"
+    },
+    {
+      "id": "HR-020",
+      "title": "Employee Offboarding & Exit Checklist",
+      "category": "IT Access",
+      "url": "https://internal.acmeinnovations.dev/hr/policies/offboarding-checklist.md",
+      "description": "Documents the full offboarding process triggered upon resignation or termination, including immediate revocation of system access, hardware return coordination with the IT Asset Desk, and final payroll settlement processing. Access to all internal tools, including GitHub, Jira, and the secrets vault, is automatically revoked at end-of-day on the employee's last working date. Any outstanding expense reimbursements or leave encashments are calculated and included in the final settlement per the leave policy in HR-017. Exit interviews are conducted by People Operations and are optional but strongly encouraged for feedback purposes.",
+      "tags": ["offboarding", "it-access", "hr"],
+      "owner": "People Operations Team",
+      "last_updated": "2026-05-03"
+    }
+  ]
+}

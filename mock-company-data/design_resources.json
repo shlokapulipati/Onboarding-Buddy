@@ -1,0 +1,206 @@
+{
+  "resource_type": "design_resources",
+  "company": "Acme Innovations",
+  "items": [
+    {
+      "id": "DES-001",
+      "title": "Acme Core Design System (Figma)",
+      "category": "Design System",
+      "url": "https://figma.com/file/acme-innovations/core-design-system",
+      "description": "The master Figma file containing every approved component, typography scale, spacing token, and elevation style used across Acme products. It includes both Light Mode and Dark Mode variants for every component, kept in sync through Figma's variable modes feature. Designers and engineers are required to reference this file before creating any new UI pattern to maintain visual consistency across the product suite. The file is version-controlled through Figma branching, with major releases tagged and announced in the #design-system Slack channel.",
+      "tags": ["figma", "design-system", "dark-mode"],
+      "owner": "Design Systems Team",
+      "last_updated": "2026-06-09"
+    },
+    {
+      "id": "DES-002",
+      "title": "Dark Mode Component Library",
+      "category": "Component Library",
+      "url": "https://figma.com/file/acme-innovations/dark-mode-components",
+      "description": "A dedicated Figma library focused exclusively on Dark Mode variants of buttons, cards, modals, and navigation elements, built to WCAG AA contrast standards. Each component includes documented contrast ratios directly in the component description to help designers avoid accessibility regressions. This library is referenced automatically by the main design system file rather than maintained as a separate duplicate set of components. Any new component must be designed in both Light and Dark Mode before it can be approved for the shared library.",
+      "tags": ["figma", "dark-mode", "components", "accessibility"],
+      "owner": "Design Systems Team",
+      "last_updated": "2026-05-27"
+    },
+    {
+      "id": "DES-003",
+      "title": "Onboarding Buddy — Product UI Kit",
+      "category": "Component Library",
+      "url": "https://figma.com/file/acme-innovations/onboarding-buddy-ui-kit",
+      "description": "A product-specific Figma file containing screen layouts, chat interface components, and empty states specifically for the Onboarding Buddy AI agent product. Includes annotated interaction states for the chat input, loading skeletons, and citation display components used when the agent references source documents. This file is kept separate from the core design system since it contains product-specific patterns not yet generalized for reuse. Designers working on Onboarding Buddy features should start every new screen from this file's templates.",
+      "tags": ["figma", "ui-kit", "onboarding-buddy"],
+      "owner": "Product Design Team",
+      "last_updated": "2026-06-12"
+    },
+    {
+      "id": "DES-004",
+      "title": "Q3 Sprint Board — Onboarding Buddy Squad",
+      "category": "Agile Sprint Board",
+      "url": "https://acme-innovations.atlassian.net/jira/software/projects/OBUD/boards/14",
+      "description": "The live Jira sprint board tracking all active development tickets for the Onboarding Buddy squad, organized into Backlog, In Progress, Code Review, and Done columns. Sprints run in two-week cycles, with sprint planning occurring every other Monday and retrospectives every other Friday. Ticket labels distinguish between `frontend`, `backend`, `rag-pipeline`, and `infra` work to help engineers filter relevant tasks quickly. Story point estimates follow a modified Fibonacci scale agreed upon during the team's working agreement session.",
+      "tags": ["jira", "sprint", "agile", "onboarding-buddy"],
+      "owner": "Onboarding Buddy Squad",
+      "last_updated": "2026-06-30"
+    },
+    {
+      "id": "DES-005",
+      "title": "Company-Wide Trello Roadmap Board",
+      "category": "Agile Sprint Board",
+      "url": "https://trello.com/b/acmeinnovations/company-roadmap",
+      "description": "A high-level Trello board used by leadership to track cross-team initiatives at a quarterly granularity, distinct from the detailed sprint-level Jira boards used within individual squads. Cards are color-coded by department (Engineering, Design, Marketing, Sales) and include a linked one-pager for any initiative larger than a single sprint. This board is reviewed publicly during the monthly all-hands transparency meeting referenced in the employee handbook. It's intended as a read-only reference for most employees rather than a working board.",
+      "tags": ["trello", "roadmap", "planning"],
+      "owner": "Executive Team",
+      "last_updated": "2026-06-25"
+    },
+    {
+      "id": "DES-006",
+      "title": "Onboarding Buddy — Product Roadmap (12-Month)",
+      "category": "Product Roadmap",
+      "url": "https://internal.acmeinnovations.dev/product/onboarding-buddy-roadmap.pdf",
+      "description": "A detailed twelve-month product roadmap for the Onboarding Buddy platform, broken into Now, Next, and Later horizons following a standard product roadmap framework. Current priorities include expanding the RAG retrieval pipeline to support multi-document citation and building an admin dashboard for HR teams to update source documents without engineering involvement. Each roadmap item links to its corresponding Jira epic for detailed tracking. The roadmap is reviewed and revised quarterly with input from customer feedback sessions.",
+      "tags": ["roadmap", "product", "onboarding-buddy"],
+      "owner": "Product Management Team",
+      "last_updated": "2026-06-15"
+    },
+    {
+      "id": "DES-007",
+      "title": "Brand Guidelines & Logo Usage Kit",
+      "category": "Brand Assets",
+      "url": "https://internal.acmeinnovations.dev/brand/brand-guidelines.pdf",
+      "description": "The official brand guideline document covering correct logo usage, minimum clear-space requirements, and prohibited logo modifications such as stretching, recoloring, or adding drop shadows. Includes downloadable logo files in SVG, PNG, and EPS formats for both the primary full-color logo and the monochrome variant used on dark backgrounds. Also documents the approved typography pairing of Inter for UI and Söhne for marketing materials. Any external-facing use of the Acme logo must be approved by the Brand team before publication.",
+      "tags": ["brand", "logo", "guidelines"],
+      "owner": "Brand Team",
+      "last_updated": "2026-02-14"
+    },
+    {
+      "id": "DES-008",
+      "title": "Acme Color Palette & Design Tokens",
+      "category": "Brand Assets",
+      "url": "https://internal.acmeinnovations.dev/brand/color-palette-tokens.json",
+      "description": "A machine-readable JSON file listing every approved brand color as a design token, including primary, secondary, semantic (success/warning/error), and neutral color scales for both Light and Dark Mode. This file is the single source of truth consumed directly by the Figma design system via the Tokens Studio plugin, ensuring designers and engineers reference identical hex values. Each token includes a WCAG contrast rating against both white and black backgrounds. Any new color added to the palette must go through Brand team review before being added to this file.",
+      "tags": ["brand", "colors", "design-tokens", "dark-mode"],
+      "owner": "Brand Team",
+      "last_updated": "2026-05-06"
+    },
+    {
+      "id": "DES-009",
+      "title": "Marketing Asset Library (Photos, Icons, Illustrations)",
+      "category": "Brand Assets",
+      "url": "https://internal.acmeinnovations.dev/brand/marketing-asset-library",
+      "description": "A centralized repository of approved photography, custom illustrations, and the full icon set used across marketing and product surfaces. All illustrations follow a consistent flat, geometric style with the brand's signature rounded corner treatment. Icons are provided in both outline and filled variants at multiple sizes to support different UI density requirements. Usage rights are restricted to internal and approved marketing purposes only, and none of these assets may be used in third-party or personal projects.",
+      "tags": ["brand", "assets", "icons", "illustrations"],
+      "owner": "Brand Team",
+      "last_updated": "2026-04-02"
+    },
+    {
+      "id": "DES-010",
+      "title": "Onboarding Buddy — Core User Flow Diagram",
+      "category": "User Flow Diagram",
+      "url": "https://figma.com/file/acme-innovations/onboarding-buddy-user-flows",
+      "description": "A comprehensive user flow diagram mapping the entire fresher journey through the Onboarding Buddy agent, from first login through completing their 30-day onboarding milestone. Includes decision branches for scenarios like ambiguous queries, low-confidence retrieval results, and escalation to a human HR contact. Each flow node links to the corresponding Figma screen mockup for that step. This diagram is the primary reference used during sprint planning to scope new features against the existing user journey.",
+      "tags": ["user-flow", "figma", "onboarding-buddy", "ux"],
+      "owner": "Product Design Team",
+      "last_updated": "2026-06-20"
+    },
+    {
+      "id": "DES-011",
+      "title": "New Hire IT Setup — Flowchart",
+      "category": "User Flow Diagram",
+      "url": "https://internal.acmeinnovations.dev/ux/new-hire-it-setup-flowchart.pdf",
+      "description": "A flowchart illustrating the exact sequence of steps a new hire follows to get fully set up on day one, from receiving their laptop to completing their first successful `git push`. This diagram was used directly as the source material for structuring the Onboarding Buddy knowledge base's tech setup content. It highlights common drop-off points, such as PATH configuration issues, that the AI agent is specifically designed to help troubleshoot. HR and IT teams use this flowchart when auditing whether the onboarding process needs simplification.",
+      "tags": ["user-flow", "onboarding", "it-setup"],
+      "owner": "IT Operations Team",
+      "last_updated": "2026-03-18"
+    },
+    {
+      "id": "DES-012",
+      "title": "Admin Dashboard Wireframes (Low-Fidelity)",
+      "category": "User Flow Diagram",
+      "url": "https://figma.com/file/acme-innovations/admin-dashboard-wireframes",
+      "description": "Early-stage low-fidelity wireframes for the upcoming Onboarding Buddy admin dashboard, allowing HR staff to upload and manage source documents without engineering support. Includes rough sketches of the document upload flow, a preview pane for testing agent responses before publishing changes live, and a version history view. These wireframes are intentionally unstyled to keep early feedback focused on layout and flow rather than visual polish. Once validated, this file will be used to produce high-fidelity mockups in the Product UI Kit.",
+      "tags": ["wireframes", "figma", "admin-dashboard"],
+      "owner": "Product Design Team",
+      "last_updated": "2026-06-28"
+    },
+    {
+      "id": "DES-013",
+      "title": "Design Review Process & Handoff Checklist",
+      "category": "Design System",
+      "url": "https://internal.acmeinnovations.dev/design/design-review-checklist.md",
+      "description": "Documents the required process for getting a design approved and handed off to engineering, including a mandatory accessibility pass and a responsive breakpoint check at mobile, tablet, and desktop sizes. Every design must be reviewed in both Light and Dark Mode before being marked ready for development. Includes a checklist item confirming that all text meets WCAG AA contrast requirements against its background. Engineers should not begin implementation until a design has been marked \"Dev Ready\" in Figma per this checklist.",
+      "tags": ["design-process", "handoff", "accessibility"],
+      "owner": "Design Systems Team",
+      "last_updated": "2026-04-25"
+    },
+    {
+      "id": "DES-014",
+      "title": "Design Sprint Retrospective Board Template",
+      "category": "Agile Sprint Board",
+      "url": "https://trello.com/b/acmeinnovations/design-retro-template",
+      "description": "A reusable Trello template used by design squads to run bi-weekly retrospectives, structured around What Went Well, What Didn't, and Action Items columns. Each retro concludes with a maximum of three action items to keep follow-through realistic, a practice adopted after earlier retros produced too many unfinished action items. Facilitators rotate each sprint to ensure the retro format doesn't become stale. Completed retro boards are archived rather than deleted, to allow tracking recurring themes over time.",
+      "tags": ["trello", "retrospective", "agile"],
+      "owner": "Product Design Team",
+      "last_updated": "2026-05-30"
+    },
+    {
+      "id": "DES-015",
+      "title": "Icon System — Full Library (SVG Export Set)",
+      "category": "Component Library",
+      "url": "https://figma.com/file/acme-innovations/icon-system-full-library",
+      "description": "The complete icon library used across all Acme products, containing over 300 icons built on a consistent 24x24 pixel grid with a 2px stroke weight. Every icon exists in both outline and solid variants, matching the same naming convention used in the codebase's icon component library for easy lookup. New icons proposed by product teams must follow the documented grid and stroke rules before being accepted into this shared file. Icons are exported automatically to SVG via a Figma plugin whenever the file is published.",
+      "tags": ["figma", "icons", "component-library"],
+      "owner": "Design Systems Team",
+      "last_updated": "2026-05-19"
+    },
+    {
+      "id": "DES-016",
+      "title": "Competitive UX Research — Onboarding Tools",
+      "category": "Product Roadmap",
+      "url": "https://internal.acmeinnovations.dev/research/competitive-onboarding-ux-research.pdf",
+      "description": "A research document comparing UX approaches across several competing onboarding and internal-knowledge-agent products, informing several of the current roadmap priorities for Onboarding Buddy. Highlights patterns like inline source citation and confidence indicators as differentiators worth adopting. Also documents common user complaints found in public reviews, such as agents giving overly generic answers instead of company-specific ones. This research directly informed the decision to prioritize precise, document-grounded retrieval over general-purpose chat responses.",
+      "tags": ["research", "ux", "roadmap"],
+      "owner": "Product Management Team",
+      "last_updated": "2026-03-07"
+    },
+    {
+      "id": "DES-017",
+      "title": "Presentation Template — Investor & Stakeholder Decks",
+      "category": "Brand Assets",
+      "url": "https://internal.acmeinnovations.dev/brand/investor-deck-template.pptx",
+      "description": "The official slide template for any investor-facing or major stakeholder presentation, pre-built with brand-approved colors, fonts, and chart styling matching the design token file in DES-008. Includes pre-formatted slide layouts for metrics dashboards, roadmap timelines, and team introduction slides. Presenters are required to use this template rather than a personal design for any external-facing presentation. The template is updated quarterly to reflect the latest brand refinements.",
+      "tags": ["brand", "presentation", "template"],
+      "owner": "Brand Team",
+      "last_updated": "2026-04-30"
+    },
+    {
+      "id": "DES-018",
+      "title": "Accessibility Audit Checklist (Product-Wide)",
+      "category": "Design System",
+      "url": "https://internal.acmeinnovations.dev/design/accessibility-audit-checklist.md",
+      "description": "A comprehensive checklist used to audit any new feature for accessibility compliance before launch, covering keyboard navigation, screen reader labeling, and color contrast in both Light and Dark Mode. Includes specific guidance for testing chat-based interfaces like Onboarding Buddy, such as ensuring streaming text responses are properly announced to screen readers. Designers and engineers jointly sign off on this checklist during the design handoff stage documented in DES-013. Any unresolved accessibility issue blocks release until either fixed or explicitly risk-accepted by the design lead.",
+      "tags": ["accessibility", "audit", "design-system"],
+      "owner": "Design Systems Team",
+      "last_updated": "2026-05-12"
+    },
+    {
+      "id": "DES-019",
+      "title": "Onboarding Buddy — Chat Interface Interaction States",
+      "category": "Component Library",
+      "url": "https://figma.com/file/acme-innovations/chat-interaction-states",
+      "description": "A focused Figma file documenting every interaction state of the Onboarding Buddy chat interface, including idle, typing, streaming response, error, and low-confidence-answer states. The low-confidence state includes a specific visual treatment prompting the user to rephrase or escalate to a human, distinguishing it clearly from a standard confident answer. This file is referenced heavily by frontend engineers implementing the chat UI to ensure edge-case states aren't overlooked. Motion specifications for the typing indicator animation are also documented here in detail.",
+      "tags": ["figma", "chat-ui", "onboarding-buddy", "interaction-design"],
+      "owner": "Product Design Team",
+      "last_updated": "2026-06-22"
+    },
+    {
+      "id": "DES-020",
+      "title": "Cross-Functional OKR Tracker (Design + Product)",
+      "category": "Product Roadmap",
+      "url": "https://acme-innovations.atlassian.net/jira/software/projects/OKR/boards/3",
+      "description": "A Jira board tracking quarterly OKRs jointly owned by the Design and Product teams, linking each objective to specific key results with measurable targets, such as reducing time-to-first-successful-query for new Onboarding Buddy users. Progress is updated weekly by initiative owners and reviewed together during the monthly cross-functional sync. Objectives that fall behind pace are flagged in red and discussed during leadership review. This board is distinct from sprint-level Jira boards and focuses purely on outcome-level tracking rather than individual tickets.",
+      "tags": ["okr", "jira", "product", "design"],
+      "owner": "Product Management Team",
+      "last_updated": "2026-06-29"
+    }
+  ]
+}

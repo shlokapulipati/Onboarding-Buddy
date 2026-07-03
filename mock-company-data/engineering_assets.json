@@ -1,0 +1,206 @@
+{
+  "resource_type": "engineering_assets",
+  "company": "Acme Innovations",
+  "items": [
+    {
+      "id": "ENG-001",
+      "title": "Acme Fullstack Boilerplate (React + Node)",
+      "category": "Boilerplate Repository",
+      "url": "https://github.com/acme-innovations/fullstack-boilerplate",
+      "description": "The official starter template for new full-stack projects, pre-configured with React 19, Vite, Express, and TypeScript in a monorepo structure using pnpm workspaces. Includes pre-wired ESLint, Prettier, and Husky pre-commit hooks that match Acme's internal style guide out of the box. New engineers should fork this repo rather than starting from scratch, since it already includes authentication scaffolding and error boundary patterns used company-wide. The README includes a step-by-step local setup checklist covering Node LTS installation and environment variable configuration.",
+      "tags": ["react", "node", "boilerplate", "typescript"],
+      "owner": "Platform Engineering Team",
+      "last_updated": "2026-05-14"
+    },
+    {
+      "id": "ENG-002",
+      "title": "Node.js API Server Starter Kit",
+      "category": "Boilerplate Repository",
+      "url": "https://github.com/acme-innovations/node-api-starter",
+      "description": "A minimal but production-ready Express.js starter focused purely on backend API development, without the frontend scaffolding included in the full-stack boilerplate. It ships with a pre-configured Winston logger, centralized error-handling middleware, and a `.env.example` file listing every required environment variable. This is the recommended starting point for engineers building standalone microservices rather than full applications. Includes a Dockerfile and docker-compose setup for spinning up a local PostgreSQL instance alongside the API.",
+      "tags": ["node", "express", "api", "microservice"],
+      "owner": "Backend Guild",
+      "last_updated": "2026-04-22"
+    },
+    {
+      "id": "ENG-003",
+      "title": "React Component Boilerplate (Vite + TS)",
+      "category": "Boilerplate Repository",
+      "url": "https://github.com/acme-innovations/react-vite-ts-starter",
+      "description": "A lightweight frontend-only boilerplate for building standalone React micro-frontends that plug into the main Acme dashboard shell. Preconfigured with Vitest for unit testing and Storybook for isolated component development, both of which are mandatory for any new UI component shipped to production. Includes a pre-built routing skeleton using React Router v7 and example unit tests to reference for testing conventions. Engineers are expected to maintain at least 80% test coverage on any component built from this template.",
+      "tags": ["react", "vite", "typescript", "storybook"],
+      "owner": "Frontend Guild",
+      "last_updated": "2026-06-01"
+    },
+    {
+      "id": "ENG-004",
+      "title": "Core PostgreSQL Schema (Onboarding Buddy Service)",
+      "category": "Database Schema",
+      "url": "https://internal.acmeinnovations.dev/db/onboarding-buddy-schema.sql",
+      "description": "The canonical SQL schema file for the Onboarding Buddy service, defining tables for `users`, `agent_context_log`, `user_sessions`, and `knowledge_base_chunks`. Several columns, including `session_payload` and `agent_metadata`, are explicitly typed as JSONB rather than TEXT to support fast indexed querying of nested user state. The schema includes foreign key constraints between `user_sessions` and `users` with cascading deletes enabled to prevent orphaned session records. Any schema migration must be submitted as a versioned file in the `/migrations` directory rather than editing this base file directly.",
+      "tags": ["postgresql", "schema", "jsonb", "database"],
+      "owner": "Data Platform Team",
+      "last_updated": "2026-05-30"
+    },
+    {
+      "id": "ENG-005",
+      "title": "Entity Relationship Diagram — Core Platform DB",
+      "category": "Database ERD",
+      "url": "https://internal.acmeinnovations.dev/db/erd/core-platform-erd.pdf",
+      "description": "A visual entity-relationship diagram covering all primary tables in the core platform database, including relationships between the `organizations`, `users`, `projects`, and `audit_logs` tables. This ERD is regenerated automatically every time a schema migration is merged to the main branch, so it should always reflect the current production structure. Engineers should reference this diagram before writing any new JOIN-heavy query to avoid misunderstanding foreign key relationships. Legacy tables that are deprecated but not yet removed are marked in gray for clarity.",
+      "tags": ["erd", "database", "diagram", "postgresql"],
+      "owner": "Data Platform Team",
+      "last_updated": "2026-05-30"
+    },
+    {
+      "id": "ENG-006",
+      "title": "Onboarding Buddy Service — Swagger API Docs",
+      "category": "API Documentation",
+      "url": "https://internal.acmeinnovations.dev/api-docs/onboarding-buddy/swagger.json",
+      "description": "The auto-generated OpenAPI 3.0 specification for the Onboarding Buddy REST API, covering endpoints for session creation, document retrieval, and RAG query submission. Each endpoint includes example request and response payloads, along with the expected JSONB shape for the `agent_context` field to prevent frontend-backend mismatches. The spec is generated directly from inline JSDoc annotations in the Express route handlers, so any new endpoint must be documented in code rather than edited here manually. This file can be imported directly into Swagger UI or Postman for interactive testing.",
+      "tags": ["api", "swagger", "openapi", "documentation"],
+      "owner": "Backend Guild",
+      "last_updated": "2026-06-10"
+    },
+    {
+      "id": "ENG-007",
+      "title": "Acme Public API — Postman Collection",
+      "category": "API Documentation",
+      "url": "https://internal.acmeinnovations.dev/postman/acme-public-api.postman_collection.json",
+      "description": "A complete Postman collection covering every public-facing endpoint exposed by Acme's API gateway, organized into folders by service domain (Auth, Billing, Notifications, Onboarding). Includes pre-configured environment variables for local, staging, and sandbox targets so engineers can switch contexts without manually editing base URLs. Each request includes a pre-request script that automatically refreshes the bearer token using the sandbox test credentials. New engineers should import this collection on day one to begin exploring the API surface hands-on.",
+      "tags": ["api", "postman", "testing"],
+      "owner": "Developer Experience Team",
+      "last_updated": "2026-05-18"
+    },
+    {
+      "id": "ENG-008",
+      "title": "JSONB Handling & Payload Validation Guidelines",
+      "category": "Security Guideline",
+      "url": "https://internal.acmeinnovations.dev/docs/security/jsonb-validation-guidelines.md",
+      "description": "A mandatory-reading guideline explaining how to safely handle JSONB columns to prevent silent type mismatches between the backend interface and the database schema. It walks through using Zod schema validation on every payload before it reaches an INSERT or UPDATE query touching a JSONB column. The document specifically calls out the common failure mode where a stringified number is sent where an integer is expected, causing broken UI rendering rather than a clear error. All pull requests touching JSONB columns must reference this guideline in the PR description per the engineering review checklist.",
+      "tags": ["security", "jsonb", "validation", "postgresql"],
+      "owner": "Security Engineering Team",
+      "last_updated": "2026-04-29"
+    },
+    {
+      "id": "ENG-009",
+      "title": "Vulnerability Testing Checklist (Pre-Deploy)",
+      "category": "Security Guideline",
+      "url": "https://internal.acmeinnovations.dev/docs/security/pre-deploy-vuln-checklist.md",
+      "description": "A required checklist that every engineer must complete before deploying a new service or major feature to production, covering SQL injection testing, dependency vulnerability scanning via `npm audit`, and secrets-leak scanning across the diff. It includes specific guidance on testing API endpoints with malformed and oversized JSONB payloads to confirm the validation layer rejects them gracefully rather than crashing. The checklist also requires confirmation that no hardcoded credentials or API tokens are present anywhere in the committed code. Deployment pipelines will block merges where this checklist has not been acknowledged in the PR template.",
+      "tags": ["security", "vulnerability", "deployment", "checklist"],
+      "owner": "Security Engineering Team",
+      "last_updated": "2026-06-05"
+    },
+    {
+      "id": "ENG-010",
+      "title": "OWASP-Aligned Secure Coding Standards",
+      "category": "Security Guideline",
+      "url": "https://internal.acmeinnovations.dev/docs/security/secure-coding-standards.md",
+      "description": "Acme's internal secure coding standard, adapted from the OWASP Top 10, covering injection prevention, authentication handling, and secure session management practices used across all services. It provides concrete code examples for parameterized queries versus unsafe string concatenation in SQL statements. The document also covers rate-limiting expectations for any publicly exposed endpoint to mitigate brute-force and denial-of-service risks. Every engineer is required to acknowledge having read this document during their first-week onboarding checklist.",
+      "tags": ["security", "owasp", "secure-coding"],
+      "owner": "Security Engineering Team",
+      "last_updated": "2026-03-11"
+    },
+    {
+      "id": "ENG-011",
+      "title": "System PATH Corruption Fix Guide (PostgreSQL on Windows)",
+      "category": "System Configuration Guide",
+      "url": "https://internal.acmeinnovations.dev/docs/setup/postgres-path-fix-windows.md",
+      "description": "A step-by-step troubleshooting guide for the common issue where installing PostgreSQL on Windows silently truncates or overwrites the system PATH variable, breaking recognition of `npm`, `git`, and `psql` commands. It walks through opening System Properties, locating the Path entry under System Variables, and manually re-adding missing directories such as the Node.js and Git cmd folders. The guide explicitly warns against editing the PATH string directly and instead recommends using the structured list editor to add entries safely. It concludes with verification steps using `--version` flags to confirm all tools respond correctly after a terminal restart.",
+      "tags": ["path", "environment", "postgresql", "windows", "troubleshooting"],
+      "owner": "Developer Experience Team",
+      "last_updated": "2026-05-02"
+    },
+    {
+      "id": "ENG-012",
+      "title": "macOS/Linux Shell Profile Configuration Guide",
+      "category": "System Configuration Guide",
+      "url": "https://internal.acmeinnovations.dev/docs/setup/shell-profile-config-unix.md",
+      "description": "A setup guide for correctly configuring `.zshrc` or `.bash_profile` on macOS and Linux so that Node.js, PostgreSQL, and global npm packages are recognized in every new terminal session. It explains the difference between a login shell and a non-login shell and why environment variables sometimes fail to persist across terminal tabs. Includes instructions for running `source ~/.zshrc` to apply changes without restarting the terminal entirely. Also covers common Homebrew PATH conflicts when multiple versions of Node are installed simultaneously.",
+      "tags": ["path", "environment", "macos", "linux", "shell"],
+      "owner": "Developer Experience Team",
+      "last_updated": "2026-04-18"
+    },
+    {
+      "id": "ENG-013",
+      "title": "Local PostgreSQL Setup & Superuser Password Recovery",
+      "category": "System Configuration Guide",
+      "url": "https://internal.acmeinnovations.dev/docs/setup/postgres-local-setup.md",
+      "description": "Covers the full local PostgreSQL installation process, including recommended port configuration and secure storage of the superuser password using the company password manager. Explains that the superuser password cannot be recovered without a full reinstall, and outlines the exact reinstall steps if it's lost. Also documents how to create a dedicated development database and connect to it via `psql` for the first time. Includes a troubleshooting section for the common `password authentication failed for user postgres` error.",
+      "tags": ["postgresql", "setup", "database"],
+      "owner": "Data Platform Team",
+      "last_updated": "2026-05-25"
+    },
+    {
+      "id": "ENG-014",
+      "title": "Node Version Manager (nvm) Setup Guide",
+      "category": "System Configuration Guide",
+      "url": "https://internal.acmeinnovations.dev/docs/setup/nvm-setup-guide.md",
+      "description": "Explains how to install and use `nvm` to manage multiple Node.js versions locally, which is required since different Acme repositories occasionally pin different LTS versions. Walks through switching versions per-project using an `.nvmrc` file so the correct Node version loads automatically when entering a project directory. Also addresses the common issue where global npm packages installed under one Node version aren't visible after switching versions. Recommended as the very first tool to install before cloning any Acme repository.",
+      "tags": ["node", "nvm", "environment", "setup"],
+      "owner": "Developer Experience Team",
+      "last_updated": "2026-03-29"
+    },
+    {
+      "id": "ENG-015",
+      "title": "GitHub Actions CI/CD Pipeline Reference",
+      "category": "CI/CD Documentation",
+      "url": "https://internal.acmeinnovations.dev/docs/cicd/github-actions-reference.md",
+      "description": "Documents the standard GitHub Actions workflow used across Acme repositories, covering linting, unit tests, JSONB payload validation tests, and staging deployment stages. Explains how branch protection rules require all checks to pass before a pull request can be merged into `main`. Includes guidance on debugging failed pipeline runs using the Actions log viewer and re-running individual failed jobs. Also documents how secrets are injected into the pipeline securely via GitHub's encrypted secrets store rather than being hardcoded in workflow files.",
+      "tags": ["cicd", "github-actions", "deployment"],
+      "owner": "Platform Engineering Team",
+      "last_updated": "2026-06-02"
+    },
+    {
+      "id": "ENG-016",
+      "title": "Local Docker Compose Environment (Full Stack)",
+      "category": "Boilerplate Repository",
+      "url": "https://github.com/acme-innovations/local-dev-docker-compose",
+      "description": "A ready-to-run Docker Compose configuration that spins up PostgreSQL, Redis, and a mock mail server locally, so engineers don't need to install every dependency natively on their machine. Environment variables are pulled from a local `.env` file that mirrors production naming conventions without exposing real credentials. This is the recommended path for engineers who want to avoid the PostgreSQL PATH corruption issues documented in ENG-011 entirely. Includes a `make dev` command that boots the entire stack with a single line.",
+      "tags": ["docker", "docker-compose", "local-dev"],
+      "owner": "Platform Engineering Team",
+      "last_updated": "2026-05-09"
+    },
+    {
+      "id": "ENG-017",
+      "title": "Database Migration Guidelines",
+      "category": "Database Schema",
+      "url": "https://internal.acmeinnovations.dev/docs/db/migration-guidelines.md",
+      "description": "Explains the required process for writing and submitting schema migrations using the `node-pg-migrate` tool, including naming conventions and rollback requirements for every migration file. Emphasizes that any migration altering a JSONB column's expected structure must include a corresponding update to the shared TypeScript interface in the same pull request. Also covers how to test migrations safely against a local database snapshot before applying them to staging. Migrations that lack a working `down()` rollback function will be rejected during code review.",
+      "tags": ["database", "migration", "postgresql"],
+      "owner": "Data Platform Team",
+      "last_updated": "2026-04-11"
+    },
+    {
+      "id": "ENG-018",
+      "title": "Internal Component Library — Storybook Instance",
+      "category": "API Documentation",
+      "url": "https://internal.acmeinnovations.dev/storybook/component-library",
+      "description": "A live Storybook instance documenting every reusable React component in Acme's shared component library, complete with interactive prop controls and usage code snippets. Engineers building new UI features are expected to check this library first before building a custom component from scratch. Each component entry includes accessibility notes and known browser compatibility caveats. This instance is automatically redeployed on every merge to the component library's main branch.",
+      "tags": ["react", "storybook", "components"],
+      "owner": "Frontend Guild",
+      "last_updated": "2026-06-08"
+    },
+    {
+      "id": "ENG-019",
+      "title": "Authentication & Session Management Reference Implementation",
+      "category": "Boilerplate Repository",
+      "url": "https://github.com/acme-innovations/auth-reference-impl",
+      "description": "A reference implementation of Acme's standard JWT-based authentication flow, including refresh token rotation and session invalidation logic. Demonstrates the correct pattern for storing session metadata in a JSONB column while keeping sensitive tokens out of the database entirely. Includes thorough inline comments explaining why refresh tokens are stored hashed rather than in plaintext. New services requiring authentication should copy this pattern rather than reimplementing auth logic independently.",
+      "tags": ["authentication", "security", "node", "jwt"],
+      "owner": "Security Engineering Team",
+      "last_updated": "2026-05-21"
+    },
+    {
+      "id": "ENG-020",
+      "title": "Query Performance & Indexing Guide for JSONB Columns",
+      "category": "Database Schema",
+      "url": "https://internal.acmeinnovations.dev/docs/db/jsonb-indexing-guide.md",
+      "description": "Covers how and when to add GIN indexes to JSONB columns to significantly speed up nested field lookups, using real query plans from the Onboarding Buddy service as examples. Explains the tradeoff between index maintenance overhead on writes versus read performance gains for frequently queried JSONB fields. Includes benchmark comparisons showing query time before and after indexing a heavily-used `agent_context_log.metadata` column. Recommended reading before adding any new JSONB column expected to be queried at scale.",
+      "tags": ["postgresql", "jsonb", "performance", "indexing"],
+      "owner": "Data Platform Team",
+      "last_updated": "2026-06-11"
+    }
+  ]
+}

@@ -7,7 +7,8 @@ from google import genai
 from google.genai import types
 
 # Import your working skill!
-from skills_dir.company_search import search_handbook
+from skills_dir.company_search import search_handbook, search_external_mcp
+from skills_dir.external_services import fetch_proprietary_assets
 
 # Load .env file manually if it exists
 if os.path.exists(".env"):
@@ -39,13 +40,14 @@ client = genai.Client()
 system_instruction = (
     "You are 'Buddy', an AI Onboarding Assistant for freshers. "
     "You MUST use the 'search_handbook' tool to find answers about company policies. "
+    "If a fresher asks about something that is externally accessible or relates to external sources not in the handbook, you MUST use the 'search_external_mcp' tool. "
     "You are allowed to answer basic, general questions that are not in the mock data directly using your own knowledge. "
     "However, if a question is difficult, complex, or requires sensitive company-specific information not found in the handbook, you must tell the fresher to contact HR."
 )
 config = types.GenerateContentConfig(
     system_instruction=system_instruction,
     temperature=0.2,
-    tools=[search_handbook]
+    tools=[search_handbook, search_external_mcp, fetch_proprietary_assets]
 )
 
 # Start a global chat session to remember conversation history
