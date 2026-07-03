@@ -35,6 +35,7 @@ interface ChatSession {
 export default function App() {
   const [userToken, setUserToken] = useState<string | null>(() => localStorage.getItem("onboarding_token"));
   const [userEmail, setUserEmail] = useState<string | null>(() => localStorage.getItem("onboarding_email"));
+  const [userDisplayName, setUserDisplayName] = useState<string | null>(() => localStorage.getItem("onboarding_username"));
   const [authMode, setAuthMode] = useState<"signin" | "signup">("signin");
   const [authEmail, setAuthEmail] = useState("");
   const [authPassword, setAuthPassword] = useState("");
@@ -48,7 +49,7 @@ export default function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  const userName = userEmail ? userEmail.split('@')[0] : "Guest";
+  const userName = userDisplayName || (userEmail ? userEmail.split('@')[0] : "Guest");
 
   // Navigation & View State
   const [view, setView] = useState<"chat" | "cli">("chat");
@@ -71,18 +72,40 @@ export default function App() {
   ]);
   const [cliInput, setCliInput] = useState<string>("");
 
-  const [chatSessions, setChatSessions] = useState<ChatSession[]>(() => {
-    const saved = localStorage.getItem("onboarding_chat_sessions");
-    if (saved) {
-      try {
-        return JSON.parse(saved);
-      } catch (e) {
-        return [];
-      }
-    }
-    return [];
-  });
+  const [chatSessions, setChatSessions] = useState<ChatSession[]>([]);
   const [currentSessionId, setCurrentSessionId] = useState<string | null>(null);
+
+  // Load chat sessions specific to the logged-in user
+  useEffect(() => {
+    if (userEmail) {
+      const userKey = `onboarding_chat_sessions_${userEmail}`;
+      let saved = localStorage.getItem(userKey);
+      
+      // Migration: If this user has no specific chats yet, check if there are legacy generic chats
+      if (!saved) {
+        const legacySaved = localStorage.getItem("onboarding_chat_sessions");
+        if (legacySaved) {
+          saved = legacySaved;
+          // Delete the legacy chats so they aren't inherited by the next person who signs up
+          localStorage.removeItem("onboarding_chat_sessions");
+          // Save them immediately to the new user's specific key
+          localStorage.setItem(userKey, legacySaved);
+        }
+      }
+
+      if (saved) {
+        try {
+          setChatSessions(JSON.parse(saved));
+        } catch (e) {
+          setChatSessions([]);
+        }
+      } else {
+        setChatSessions([]);
+      }
+    } else {
+      setChatSessions([]);
+    }
+  }, [userEmail]);
 
   useEffect(() => {
     if (messages.length === 0) return;
@@ -113,8 +136,10 @@ export default function App() {
 
   // Persist chat sessions to local storage
   useEffect(() => {
-    localStorage.setItem("onboarding_chat_sessions", JSON.stringify(chatSessions));
-  }, [chatSessions]);
+    if (userEmail) {
+      localStorage.setItem(`onboarding_chat_sessions_${userEmail}`, JSON.stringify(chatSessions));
+    }
+  }, [chatSessions, userEmail]);
 
   // Refs for auto-scroll mechanics
   const chatEndRef = useRef<HTMLDivElement | null>(null);
@@ -142,34 +167,58 @@ export default function App() {
       return;
     }
     
-    // Mock authentication to bypass backend network errors
     try {
-      // Simulate network delay
       await new Promise(resolve => setTimeout(resolve, 800));
       
+      const savedUsersJson = localStorage.getItem("onboarding_users") || "[]";
+      let savedUsers = JSON.parse(savedUsersJson);
+      let matchedUser = null;
+      
+      if (authMode === "signup") {
+        const existing = savedUsers.find((u: any) => u.email === authEmail);
+        if (existing) {
+          setAuthError("User with this email already exists.");
+          return;
+        }
+        matchedUser = { email: authEmail, password: authPassword, username: authUsername };
+        savedUsers.push(matchedUser);
+        localStorage.setItem("onboarding_users", JSON.stringify(savedUsers));
+      } else {
+        matchedUser = savedUsers.find((u: any) => u.email === authEmail && u.password === authPassword);
+        if (!matchedUser) {
+          setAuthError("Invalid email or password.");
+          return;
+        }
+      }
+      
       const mockToken = "mock_token_" + Date.now();
-      const email = authEmail;
       
       localStorage.setItem("onboarding_token", mockToken);
-      localStorage.setItem("onboarding_email", email);
+      localStorage.setItem("onboarding_email", matchedUser.email);
+      localStorage.setItem("onboarding_username", matchedUser.username);
       
       setUserToken(mockToken);
-      setUserEmail(email);
+      setUserEmail(matchedUser.email);
+      setUserDisplayName(matchedUser.username);
       setAuthEmail("");
       setAuthPassword("");
       setAuthUsername("");
       setShowAuthModal(false);
     } catch (err: any) {
-      setAuthError("Network error. Could not connect to authentication service.");
+      setAuthError("Authentication error.");
     }
   };
 
   const handleSignOut = () => {
     localStorage.removeItem("onboarding_token");
     localStorage.removeItem("onboarding_email");
+    localStorage.removeItem("onboarding_username");
     setUserToken(null);
     setUserEmail(null);
+    setUserDisplayName(null);
     setMessages([]);
+    setChatSessions([]);
+    setCurrentSessionId(null);
     setCliLogs([
       { type: "system", text: "======================================================================" },
       { type: "system", text: "KAGGLER CORP // ONBOARDING AGENT TERMINAL v1.0.0 // SECURE LINK ACTIVE" },
