@@ -1,5 +1,5 @@
 import React from "react";
-import { Plus, Search, MessageSquare, Terminal } from "lucide-react";
+import { Plus, Search, MessageSquare, Terminal, Trash } from "lucide-react";
 import { styles } from "./styles";
 import { ChatSession } from "../types";
 
@@ -13,6 +13,7 @@ interface SidebarProps {
   currentSessionId: string | null;
   setCurrentSessionId: React.Dispatch<React.SetStateAction<string | null>>;
   setMessages: React.Dispatch<React.SetStateAction<any[]>>;
+  handleDeleteSession: (sessionId: string) => void;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
@@ -25,6 +26,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   currentSessionId,
   setCurrentSessionId,
   setMessages,
+  handleDeleteSession,
 }) => {
   if (view !== "chat") return null;
 
@@ -76,7 +78,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <div style={styles.recentHeader}>Recent</div>
             <div style={styles.recentList}>
               {filteredHistory.map((item) => (
-                <button
+                <div
                   key={item.id}
                   onClick={() => handleLoadSession(item.id)}
                   style={{
@@ -85,15 +87,41 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       currentSessionId === item.id
                         ? "rgba(255,255,255,0.05)"
                         : "transparent",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center"
                   }}
                   title={item.snippet}
                 >
-                  <MessageSquare
-                    size={14}
-                    style={{ flexShrink: 0, color: "#8e918f" }}
-                  />
-                  {item.title}
-                </button>
+                  <div style={{ display: "flex", alignItems: "center", gap: "10px", overflow: "hidden" }}>
+                    <MessageSquare
+                      size={14}
+                      style={{ flexShrink: 0, color: "#8e918f" }}
+                    />
+                    <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                      {item.title}
+                    </span>
+                  </div>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDeleteSession(item.id);
+                    }}
+                    style={{
+                      background: "none",
+                      border: "none",
+                      color: "#8e918f",
+                      cursor: "pointer",
+                      padding: "4px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center"
+                    }}
+                    title="Delete chat"
+                  >
+                    <Trash size={14} style={{ color: "inherit" }} />
+                  </button>
+                </div>
               ))}
               {filteredHistory.length === 0 && (
                 <div

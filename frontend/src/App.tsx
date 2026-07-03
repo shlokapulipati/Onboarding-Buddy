@@ -165,8 +165,9 @@ export default function App() {
 
   // API caller mapping dynamically based on server selection
   const fetchAgentResponse = async (userMessage: string): Promise<{ response: string; toolTriggered?: string }> => {
-    // queries the direct local backend http://localhost:8000/api/chat
-    const url = "http://localhost:8000/api/chat";
+    // queries the backend API
+    const baseUrl = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+    const url = `${baseUrl}/api/chat`;
 
     try {
       const headers: Record<string, string> = {
@@ -280,7 +281,7 @@ export default function App() {
 
     if (lowerCmd === "files" || lowerCmd === "filemanager") {
       try {
-        const baseUrl = "http://localhost:8000";
+        const baseUrl = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
         const res = await fetch(`${baseUrl}/api/files`, {
           headers: { "Authorization": `Bearer ${userToken}` }
         });
@@ -305,7 +306,7 @@ export default function App() {
     if (lowerCmd.startsWith("cat ")) {
       const filename = cmd.slice(4).trim();
       try {
-        const baseUrl = "http://localhost:8000";
+        const baseUrl = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
         const res = await fetch(`${baseUrl}/api/files/${filename}`, {
           headers: { "Authorization": `Bearer ${userToken}` }
         });
@@ -327,7 +328,7 @@ export default function App() {
 
     if (lowerCmd === "external") {
       try {
-        const baseUrl = "http://localhost:8000";
+        const baseUrl = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
         const res = await fetch(`${baseUrl}/api/external-sources`, {
           headers: { "Authorization": `Bearer ${userToken}` }
         });
@@ -411,6 +412,21 @@ export default function App() {
     setIsLoading(false);
   };
 
+  const handleDeleteSession = async (sessionId: string) => {
+    setChatSessions(prev => {
+      const updated = prev.filter(s => s.id !== sessionId);
+      if (userEmail) {
+        setDoc(doc(db, "chatSessions", userEmail), { sessions: updated }).catch(console.error);
+      }
+      return updated;
+    });
+    
+    if (currentSessionId === sessionId) {
+      setCurrentSessionId(null);
+      setMessages([]);
+    }
+  };
+
   if (showSplash) {
     return <Splash showSplash={showSplash} />;
   }
@@ -434,6 +450,7 @@ export default function App() {
         currentSessionId={currentSessionId}
         setCurrentSessionId={setCurrentSessionId}
         setMessages={setMessages}
+        handleDeleteSession={handleDeleteSession}
       />
 
       {/* 2. MAIN APPLICATION CONTENT */}
