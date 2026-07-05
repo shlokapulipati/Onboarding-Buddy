@@ -60,9 +60,23 @@ class ChatRequest(BaseModel):
 # Create the endpoint that React will call
 @app.post("/api/chat")
 def chat_endpoint(request: ChatRequest):
+    print(f"\033[1;36m[🤖 SYSTEM] Received user query. Passing to Gemini 2.5 Flash...\033[0m")
+    
+    def attempt_chat(retries=3):
+        import time
+        for i in range(retries):
+            try:
+                return chat.send_message(request.message)
+            except Exception as e:
+                error_str = str(e)
+                if ("503" in error_str or "UNAVAILABLE" in error_str or "429" in error_str) and i < retries - 1:
+                    print(f"\033[1;33m[⚠️ SYSTEM] API busy. Retrying in 2 seconds (Attempt {i+1})...\033[0m")
+                    time.sleep(2)
+                else:
+                    raise e
+
     try:
-        print(f"\033[1;36m[🤖 SYSTEM] Received user query. Passing to Gemini 2.5 Flash...\033[0m")
-        response = chat.send_message(request.message)
+        response = attempt_chat()
         
         # Attempt to extract toolTriggered if Gemini used a tool
         tool_triggered = "none"
