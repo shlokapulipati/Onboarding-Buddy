@@ -30,7 +30,7 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Allows your local React app to connect
-    allow_credentials=True,
+    allow_credentials=False, # Must be False if allow_origins is "*"
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -61,7 +61,9 @@ class ChatRequest(BaseModel):
 @app.post("/api/chat")
 def chat_endpoint(request: ChatRequest):
     try:
+        print(f"\033[1;36m[🤖 SYSTEM] Received user query. Passing to Gemini 2.5 Flash...\033[0m")
         response = chat.send_message(request.message)
+        
         # Attempt to extract toolTriggered if Gemini used a tool
         tool_triggered = "none"
         if response.candidates and response.candidates[0].content.parts:
